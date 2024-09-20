@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать!</h1>
+    <p id="username">Никнейм: </p>
+    <p id="userId">ID: </p>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();  // Расширяет приложение на весь экран
+
+        // Получаем информацию о пользователе
+        let user = tg.initDataUnsafe.user;
+
+        // Отображаем информацию на странице
+        document.getElementById('username').innerHTML += user.username;
+        document.getElementById('userId').innerHTML += user.id;
+    </script>
+</body>
+</html>
